@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 15:45:25 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/13 17:12:55 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/17 19:14:35 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	ft_check_spec(char spec, va_list args)
 {
 	if (spec == '%')
 	{
-		ft_putchar_fd('%', 1);
+		ft_putchar('%');
 		return (1);
 	}
 	return (ft_check_spec_c(spec, args));

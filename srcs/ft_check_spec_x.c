@@ -6,7 +6,7 @@
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 16:13:33 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/13 17:13:58 by ffeaugas         ###   ########.fr       */
+/*   Updated: 2022/10/17 23:54:46 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,13 @@
 
 int ft_check_spec_x(char spec, va_list args)
 {
+	long long nb;
+
 	if (spec == 'x')
 	{
-		ft_putchar_fd('x', 1);
-		return (1);
+		nb = va_arg(args, unsigned int);
+		ft_putnbr_base(nb, "0123456789abcdef");
+		return (ft_nbexlen(nb));
 	}
 	return (ft_check_spec_X(spec, args));
 }

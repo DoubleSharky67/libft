@@ -6,13 +6,11 @@
 #    By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/09 17:27:25 by ffeaugas          #+#    #+#              #
-#    Updated: 2022/10/13 17:44:32 by ffeaugas         ###   ########.fr        #
+#    Updated: 2022/10/17 23:51:14 by ffeaugas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libftprintf.a
-
-LIBFT = libft/libft.a
 
 INCLUDES = -I./includes
 
@@ -29,28 +27,30 @@ SRCS =	\
 		srcs/ft_check_spec_d_i.c \
 		srcs/ft_check_spec_u.c \
 		srcs/ft_check_spec_x.c \
-		srcs/ft_check_spec_X.c 
+		srcs/ft_check_spec_X.c \
+		srcs/ft_putchar.c \
+		srcs/ft_putstr.c \
+		srcs/ft_putnbr.c \
+		srcs/ft_putnbr_base.c \
+		srcs/ft_strlen.c \
+		srcs/ft_nblen.c \
+		srcs/ft_nbexlen.c
 
 OBJ = $(SRCS:%.c=%.o)
 
 %.o:	%.c
 	$(CC) $(CFLAGS) $(INCLUDES) -o $@ -c $<
 
-all:	$(LIBFT) $(NAME)
-
-$(LIBFT):
-	make -C ./libft
+all:	$(NAME)
 
 $(NAME):	$(OBJ)
-	ar rcs $(NAME) $(LIBFT) $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
 clean:
 	rm -f $(OBJ)
-	make clean -C ./libft
 
 fclean:	clean
 	rm -f $(NAME)
-	make fclean -C ./libft
 
 re: fclean all
 

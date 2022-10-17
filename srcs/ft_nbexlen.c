@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_spec_s.c                                  :+:      :+:    :+:   */
+/*   ft_nbexlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:27:28 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/17 20:00:16 by ffeaugas         ###   ########.fr       */
+/*   Created: 2022/10/17 23:48:04 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/10/17 23:50:41 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/srcs.h"
-
-int ft_check_spec_s(char spec, va_list args)
+int	ft_nbexlen(long long nb)
 {
-	char *str;
+	int counter;
 
-	if (spec == 's')
+	counter = 1;
+	if (nb < 0)
+		counter++;
+	while (nb / 16 != 0)
 	{
-		str = va_arg(args, char *);
-		ft_putstr(str);
-		return (ft_strlen(str));
+		nb %= 16;
+		counter++;		
 	}
-	return (ft_check_spec_p(spec, args));
+	return (counter);
 }

@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_spec_s.c                                  :+:      :+:    :+:   */
+/*   ft_nblen.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:27:28 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/17 20:00:16 by ffeaugas         ###   ########.fr       */
+/*   Created: 2022/10/17 23:40:05 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/10/17 23:41:42 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/srcs.h"
-
-int ft_check_spec_s(char spec, va_list args)
+int	ft_nblen(long long nb)
 {
-	char *str;
+	long div;
+	int counter;
 
-	if (spec == 's')
+	div = 10;
+	counter = 1;
+	if (nb < 0)
+		counter++;
+	while (nb / div != 0)
 	{
-		str = va_arg(args, char *);
-		ft_putstr(str);
-		return (ft_strlen(str));
+		div *= 10;
+		counter++;		
 	}
-	return (ft_check_spec_p(spec, args));
+	return (counter);
 }

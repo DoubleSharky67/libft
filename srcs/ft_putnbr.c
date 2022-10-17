@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_spec_s.c                                  :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ffeaugas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 16:27:28 by ffeaugas          #+#    #+#             */
-/*   Updated: 2022/10/17 20:00:16 by ffeaugas         ###   ########.fr       */
+/*   Created: 2022/10/02 11:05:04 by ffeaugas          #+#    #+#             */
+/*   Updated: 2022/10/17 19:32:13 by ffeaugas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/srcs.h"
 
-int ft_check_spec_s(char spec, va_list args)
+void	ft_putnbr(int n)
 {
-	char *str;
-
-	if (spec == 's')
+	if (n == -2147483648)
 	{
-		str = va_arg(args, char *);
-		ft_putstr(str);
-		return (ft_strlen(str));
+		ft_putstr("-2147483648");
+		return ;
 	}
-	return (ft_check_spec_p(spec, args));
+	if (n < 0)
+	{
+		n *= -1;
+		ft_putchar('-');
+	}
+	if (n >= 10)
+		ft_putnbr(n / 10);
+	ft_putchar(n % 10 + '0');
 }
